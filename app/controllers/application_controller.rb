@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::API
-  before_action :authorize_request, unless: :login_action?
-
-  private
+  before_action :authorize_request, except: [:create, :login]
 
   def authorize_request
     header = request.headers['Authorization']
@@ -14,8 +12,4 @@ class ApplicationController < ActionController::API
     end
   end
 
-  def login_action?
-    # puts "All params: #{params.inspect}"
-    params[:controller] == 'users' && params[:action] == 'login'
-  end
 end
