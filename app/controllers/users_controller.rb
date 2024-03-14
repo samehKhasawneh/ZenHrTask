@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     end
   
     def generate_token(user_id)
-      JWT.encode({ user_id: user_id }, Rails.application.secrets.secret_key_base)
+      JWT.encode({ user_id: user_id }, Rails.application.credentials.secret_key_base)
     end
   end
   
