@@ -9,11 +9,11 @@ RSpec.describe 'JobPosts', type: :request do
       parameter name: :id, in: :path, type: :string
       response '200', 'job post found' do
         schema type: :object,
-          properties: {
-            id: { type: :integer },
-            title: { type: :string },
-            description: { type: :string }
-          }
+               properties: {
+                 id: { type: :integer },
+                 title: { type: :string },
+                 description: { type: :string }
+               }
 
         let(:id) { JobPost.create(title: 'title', description: 'description').id }
         run_test!
@@ -34,14 +34,14 @@ RSpec.describe 'JobPosts', type: :request do
 
       response '200', 'job posts found' do
         schema type: :array,
-          items: {
-            type: :object,
-            properties: {
-              id: { type: :integer },
-              title: { type: :string },
-              description: { type: :string }
-            }
-          }
+               items: {
+                 type: :object,
+                 properties: {
+                   id: { type: :integer },
+                   title: { type: :string },
+                   description: { type: :string }
+                 }
+               }
 
         run_test!
       end
@@ -57,7 +57,7 @@ RSpec.describe 'JobPosts', type: :request do
           title: { type: :string },
           description: { type: :string }
         },
-        required: ['title', 'description']
+        required: %w[title description]
       }
 
       response '201', 'job post created' do

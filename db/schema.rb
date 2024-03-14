@@ -10,35 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_13_231048) do
-  create_table "job_applications", force: :cascade do |t|
-    t.boolean "status", default: false
-    t.integer "user_id", null: false
-    t.integer "job_post_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["job_post_id"], name: "index_job_applications_on_job_post_id"
-    t.index ["user_id"], name: "index_job_applications_on_user_id"
+ActiveRecord::Schema[7.1].define(version: 20_240_313_231_048) do
+  create_table 'job_applications', force: :cascade do |t|
+    t.boolean 'status', default: false
+    t.integer 'user_id', null: false
+    t.integer 'job_post_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['job_post_id'], name: 'index_job_applications_on_job_post_id'
+    t.index ['user_id'], name: 'index_job_applications_on_user_id'
   end
 
-  create_table "job_posts", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_job_posts_on_user_id"
+  create_table 'job_posts', force: :cascade do |t|
+    t.string 'title'
+    t.text 'description'
+    t.integer 'user_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['user_id'], name: 'index_job_posts_on_user_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email"
-    t.string "password_digest"
-    t.boolean "admin"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'users', force: :cascade do |t|
+    t.string 'email'
+    t.string 'password_digest'
+    t.boolean 'admin'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  add_foreign_key "job_applications", "job_posts"
-  add_foreign_key "job_applications", "users"
-  add_foreign_key "job_posts", "users"
+  add_foreign_key 'job_applications', 'job_posts'
+  add_foreign_key 'job_applications', 'users'
+  add_foreign_key 'job_posts', 'users'
 end

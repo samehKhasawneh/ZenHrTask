@@ -5,11 +5,9 @@ class ApplicationController < ActionController::API
   helper_method :current_user
 
   private
-  
-  def current_user
-    @current_user
-  end
-  
+
+  attr_reader :current_user
+
   def authorize_request
     header = request.headers['Authorization']
     token = header.split(' ').last if header.present?
@@ -22,6 +20,6 @@ class ApplicationController < ActionController::API
   end
 
   def skip_authorization?
-    (params[:controller] == 'users' && ['create', 'login'].include?(params[:action]))
+    params[:controller] == 'users' && %w[create login].include?(params[:action])
   end
 end

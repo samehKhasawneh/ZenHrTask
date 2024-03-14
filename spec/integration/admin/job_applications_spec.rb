@@ -10,15 +10,15 @@ RSpec.describe 'Admin::JobApplications', type: :request do
 
       response '200', 'job applications found' do
         schema type: :array,
-          items: {
-            type: :object,
-            properties: {
-              id: { type: :integer },
-              job_post_id: { type: :integer },
-              created_at: { type: :string, format: 'date-time' },
-              updated_at: { type: :string, format: 'date-time' }
-            }
-          }
+               items: {
+                 type: :object,
+                 properties: {
+                   id: { type: :integer },
+                   job_post_id: { type: :integer },
+                   created_at: { type: :string, format: 'date-time' },
+                   updated_at: { type: :string, format: 'date-time' }
+                 }
+               }
 
         let(:job_post) { create(:job_post) }
         let(:job_post_id) { job_post.id }
@@ -37,12 +37,12 @@ RSpec.describe 'Admin::JobApplications', type: :request do
 
       response '200', 'job application found' do
         schema type: :object,
-          properties: {
-            id: { type: :integer },
-            job_post_id: { type: :integer },
-            created_at: { type: :string, format: 'date-time' },
-            updated_at: { type: :string, format: 'date-time' }
-          }
+               properties: {
+                 id: { type: :integer },
+                 job_post_id: { type: :integer },
+                 created_at: { type: :string, format: 'date-time' },
+                 updated_at: { type: :string, format: 'date-time' }
+               }
 
         let(:id) { create(:job_application).id }
         run_test!

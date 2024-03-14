@@ -1,12 +1,12 @@
 class JobPostsController < ApplicationController
-  before_action :authorize_admin!, only: [:create, :destroy]
+  before_action :authorize_admin!, only: %i[create destroy]
 
   # GET /job_posts/:id
   def show
     @job_post = JobPost.find(params[:id])
     render json: @job_post
   end
-  
+
   # GET /job_posts
   def index
     @job_post = JobPost.all

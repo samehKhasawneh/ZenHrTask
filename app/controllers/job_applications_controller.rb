@@ -1,5 +1,4 @@
 class JobApplicationsController < ApplicationController
-
   # GET /job_applications
   def index
     @job_applications = current_user.job_applications
@@ -10,7 +9,7 @@ class JobApplicationsController < ApplicationController
   def create
     @job_post = JobPost.find(params[:job_post_id])
     @job_application = current_user.job_applications.build(job_post: @job_post)
-    
+
     if @job_application.save
       render json: @job_application, status: :created
     else

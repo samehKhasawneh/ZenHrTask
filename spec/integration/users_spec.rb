@@ -14,8 +14,8 @@ RSpec.describe 'Users', type: :request do
               email: { type: :string },
               password: { type: :string }
             },
-            required: ['email', 'password']
-          },
+            required: %w[email password]
+          }
         },
         required: ['user']
       }
@@ -42,7 +42,7 @@ RSpec.describe 'Users', type: :request do
           email: { type: :string },
           password: { type: :string }
         },
-        required: ['email', 'password']
+        required: %w[email password]
       }
 
       response '200', 'user logged in' do
