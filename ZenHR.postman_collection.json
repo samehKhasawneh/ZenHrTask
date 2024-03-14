@@ -1,0 +1,339 @@
+{
+	"info": {
+		"_postman_id": "c64fc448-e77b-4587-8c74-e4700d7491a2",
+		"name": "ZenHR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "3239483"
+	},
+	"item": [
+		{
+			"name": "User Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\":\r\n    {\r\n        \"email\": \"test@test.com\",\r\n        \"password\":\"123456\"\r\n    }\r\n}"
+				},
+				"url": "http://127.0.0.1:3000/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:3000/up"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"algorithm": "HS256",
+						"isSecretBase64Encoded": false,
+						"payload": "{}",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token",
+						"header": "{}"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.l1onyKhQ5mvgC3boDLIfcSu7se6l-zOEZCB6zByBbYA",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test@test.com\",\r\n    \"password\":\"123456\"\r\n}\r\n"
+				},
+				"url": "http://127.0.0.1:3000/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Login",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": {
+						"algorithm": "HS256",
+						"isSecretBase64Encoded": false,
+						"payload": "{}",
+						"addTokenTo": "header",
+						"headerPrefix": "Bearer",
+						"queryParamKey": "token",
+						"header": "{}"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.l1onyKhQ5mvgC3boDLIfcSu7se6l-zOEZCB6zByBbYA",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@test.com\",\r\n    \"password\":\"123456\"\r\n}\r\n"
+				},
+				"url": "http://127.0.0.1:3000/login"
+			},
+			"response": []
+		},
+		{
+			"name": "all job posts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.l1onyKhQ5mvgC3boDLIfcSu7se6l-zOEZCB6zByBbYA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://127.0.0.1:3000/job_posts"
+			},
+			"response": []
+		},
+		{
+			"name": "job post",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.l1onyKhQ5mvgC3boDLIfcSu7se6l-zOEZCB6zByBbYA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://127.0.0.1:3000/job_posts/1"
+			},
+			"response": []
+		},
+		{
+			"name": "job post",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyfQ.vf1qaQy_aDARTlGuzhdeTgWV3ddIkipd-sqoKq0PZSA",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1:3000/job_posts/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Create job posts",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyfQ.vf1qaQy_aDARTlGuzhdeTgWV3ddIkipd-sqoKq0PZSA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"job_post\": {\r\n        \"title\": \"Job Title\",\r\n        \"description\": \"Job Description\"\r\n    }\r\n}"
+				},
+				"url": "http://127.0.0.1:3000/job_posts"
+			},
+			"response": []
+		},
+		{
+			"name": "User's applications",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.l1onyKhQ5mvgC3boDLIfcSu7se6l-zOEZCB6zByBbYA",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:3000/users/1/job_applications"
+			},
+			"response": []
+		},
+		{
+			"name": "User's application",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.l1onyKhQ5mvgC3boDLIfcSu7se6l-zOEZCB6zByBbYA",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:3000/users/1/job_applications"
+			},
+			"response": []
+		},
+		{
+			"name": "Apply",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.l1onyKhQ5mvgC3boDLIfcSu7se6l-zOEZCB6zByBbYA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"job_post_id\": 2\r\n}"
+				},
+				"url": "http://localhost:3000/users/1/job_applications"
+			},
+			"response": []
+		},
+		{
+			"name": "List applications",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyfQ.vf1qaQy_aDARTlGuzhdeTgWV3ddIkipd-sqoKq0PZSA",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:3000/admin/job_posts/2/job_applications"
+			},
+			"response": []
+		},
+		{
+			"name": "admin view application",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyfQ.vf1qaQy_aDARTlGuzhdeTgWV3ddIkipd-sqoKq0PZSA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/admin/job_posts/:job_post_id/job_applications/:job_application_id/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"job_posts",
+						":job_post_id",
+						"job_applications",
+						":job_application_id",
+						""
+					],
+					"variable": [
+						{
+							"key": "job_post_id",
+							"value": ""
+						},
+						{
+							"key": "job_application_id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
