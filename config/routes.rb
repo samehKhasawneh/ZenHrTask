@@ -11,5 +11,14 @@ Rails.application.routes.draw do
   post '/login', to: 'users#login'
 
   resources :job_posts, only: [:index, :create, :destroy, :show]
-  resources :job_applications, only: [:index, :create, :update] # Admin will only view and update job applications
+  
+  resources :users do
+    resources :job_applications, only: [:index, :create, :show]
+  end
+
+  namespace :admin do
+    resources :job_posts do
+      resources :job_applications, only: [:index, :show]
+    end
+  end
 end

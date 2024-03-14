@@ -2,5 +2,5 @@ class JobApplication < ApplicationRecord
   belongs_to :user
   belongs_to :job_post
 
-  validates :status, presence: true
+  # enum status: { 0: not_seen, 1: seen}
 end
